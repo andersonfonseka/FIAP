@@ -1,20 +1,20 @@
 # FIAP
 ## Domain Driven Design - Java
 
-Aulas e Exemplos Práticos
+### Aulas e Exemplos Práticos
   
-### Ementa
+#### Ementa
 Aplicação do conceito de Orientação a Objetos em Java (JSE e JEE) que favoreça a reutilização de código e o mínimo de acoplamento através da utilização de padrões (patterns). 
 Comunicação com o Banco de Dados utilizando o JDBC.
 
-### Objetivos
+#### Objetivos
 A presente disciplina tem como objetivo apresentar a aplicar os conceitos de orientação a objetos utilizando a linguagem de programação Java.
 
-### Competências
-- Implementar algoritmos de programação orientaado a objetos
+#### Competências
+- Implementar algoritmos de programação orientado a objetos
 - Utilizar a linguagem de programação em ambiente de desenvolvimento
 
-### Habilidades 
+#### Habilidades 
 - Desenvolver aplicações utilizando conceitos da orientação a objetos com acesso à banco de dados com a linguagem Java
 
 ### Quem sou eu?
