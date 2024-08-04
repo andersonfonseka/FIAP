@@ -29,6 +29,11 @@ Anderson Fonseca, PhD Computer Science
 
 Linkedin: https://www.linkedin.com/in/andersonfonseca/
 
+Ferramentas
+
+ArgoMUML - https://argouml-tigris-org.github.io/tigris/argouml/
+Eclipse - https://eclipseide.org/
+Java - https://jdk.java.net/
 
 
 
