@@ -37,7 +37,7 @@ public class ContaCorrente extends Conta {
 	public void obterSaldo() {
 		System.out.println(super.getCliente().getNome() + " o seu saldo atual eh " + (super.getSaldo() + this.limite));
 		
-		// if ternario - veremos nas aulas
+		// if ternario - veremos nas aulas seguintes
 		double limiteUtilizado = ((this.getLimite() - (super.getSaldo() + this.limite)) > 0) ? (this.getLimite() - (super.getSaldo() + this.limite)) : 0;
 		
 		System.out.println("Utilizando " +  limiteUtilizado + " do seu limite permitido!!");
