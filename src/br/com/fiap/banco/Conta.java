@@ -44,12 +44,21 @@ public class Conta {
 
 	public void depositar(double valor) {
 		this.saldo += valor;
+		System.out.println("Deposito no valor de " + valor);
+	}
+	
+	public void sacar(double valor) {
+		System.out.println("Saque solicitado no valor de " + valor);
+		if (valor < this.saldo) {
+			this.saldo -= valor;
+			System.out.println("Saque realizado no valor de " + valor);
+		} else {
+			System.out.println("Saldo Insuficiente!!! O valor de " + valor + " eh maior que o saldo atual no valor de " + this.saldo);
+		}
 	}
 
 	public void obterSaldo() {
-		System.out.println(this.banco.getNome());
-		System.out.println("------------------------------------------");
-		System.out.println("O saldo atual de " + this.cliente.getNome() + " é " + this.saldo + "\n\n");
+		System.out.println(this.cliente.getNome() + " o seu saldo atual eh " + this.saldo);
 	}
 
 }
