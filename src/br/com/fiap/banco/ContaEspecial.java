@@ -1,6 +1,6 @@
 package br.com.fiap.banco;
 
-public class ContaCorrente extends Conta {
+public class ContaEspecial extends Conta {
 	
 	private String agencia;
 	

@@ -36,38 +36,38 @@ public class Main {
 		
 		System.out.println("------------------------------------------------------------------------");
 		
-		ContaCorrente contaCorrente = new ContaCorrente();
-		contaCorrente.setBanco(banco);
-		contaCorrente.setAgencia("0001");
-		contaCorrente.setCliente(cliente1);
-		contaCorrente.setLimite(500);
+		ContaEspecial contaEspecial = new ContaEspecial();
+		contaEspecial.setBanco(banco);
+		contaEspecial.setAgencia("0001");
+		contaEspecial.setCliente(cliente1);
+		contaEspecial.setLimite(500);
 
-		System.out.println("Banco :" + contaCorrente.getBanco().getNome());
-		System.out.println("Cliente :" + contaCorrente.getCliente().getNome());
-		System.out.println("Limite :" + contaCorrente.getLimite());
+		System.out.println("Banco :" + contaEspecial.getBanco().getNome());
+		System.out.println("Cliente :" + contaEspecial.getCliente().getNome());
+		System.out.println("Limite :" + contaEspecial.getLimite());
 		System.out.println("------------------------------------------");
 		
-		contaCorrente.obterSaldo();
-		
-		System.out.println("------------------------------------------");
-		
-		contaCorrente.depositar(100);
-		contaCorrente.obterSaldo();
+		contaEspecial.obterSaldo();
 		
 		System.out.println("------------------------------------------");
 		
-		contaCorrente.sacar(250);
-		contaCorrente.obterSaldo();
+		contaEspecial.depositar(100);
+		contaEspecial.obterSaldo();
 		
 		System.out.println("------------------------------------------");
 		
-		contaCorrente.sacar(350);
-		contaCorrente.obterSaldo();
+		contaEspecial.sacar(250);
+		contaEspecial.obterSaldo();
 		
 		System.out.println("------------------------------------------");
 		
-		contaCorrente.sacar(100);
-		contaCorrente.obterSaldo();
+		contaEspecial.sacar(350);
+		contaEspecial.obterSaldo();
+		
+		System.out.println("------------------------------------------");
+		
+		contaEspecial.sacar(100);
+		contaEspecial.obterSaldo();
 		
 		
 	}
