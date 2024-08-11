@@ -13,26 +13,26 @@ public class Main {
 		Cliente cliente1 = new Cliente();
 		cliente1.setNome("Pedro");
 		
-		Conta conta = new Conta();
-		conta.setBanco(banco);
-		conta.setCliente(cliente);
-		conta.setNumero("123456-7");
-		conta.setSaldo(0);
+		ContaComum contaComum = new ContaComum();
+		contaComum.setBanco(banco);
+		contaComum.setCliente(cliente);
+		contaComum.setNumero("123456-7");
+		contaComum.setSaldo(0);
 		
-		System.out.println("Banco :" + conta.getBanco().getNome());
-		System.out.println("Cliente :" + conta.getCliente().getNome());
+		System.out.println("Banco :" + contaComum.getBanco().getNome());
+		System.out.println("Cliente :" + contaComum.getCliente().getNome());
 		System.out.println("------------------------------------------");
 		
-		conta.obterSaldo();
+		contaComum.obterSaldo();
 		System.out.println("------------------------------------------");
-		conta.depositar(100);
-		conta.obterSaldo();
+		contaComum.depositar(100);
+		contaComum.obterSaldo();
 		System.out.println("------------------------------------------");
-		conta.depositar(50);
-		conta.obterSaldo();
+		contaComum.depositar(50);
+		contaComum.obterSaldo();
 		System.out.println("------------------------------------------");
-		conta.sacar(200);
-		conta.obterSaldo();
+		contaComum.sacar(200);
+		contaComum.obterSaldo();
 		
 		System.out.println("------------------------------------------------------------------------");
 		

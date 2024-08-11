@@ -1,6 +1,6 @@
 package br.com.fiap.banco;
 
-public class Conta {
+public class ContaComum {
 
 	private Banco banco;
 
