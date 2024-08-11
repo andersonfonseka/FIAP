@@ -34,7 +34,7 @@ public class Main {
 		contaComum.sacar(200);
 		contaComum.obterSaldo();
 		
-		System.out.println("------------------------------------------------------------------------");
+		System.out.println("----------------------------------------------------------------------------------------------");
 		
 		ContaEspecial contaEspecial = new ContaEspecial();
 		contaEspecial.setBanco(banco);
