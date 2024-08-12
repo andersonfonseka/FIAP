@@ -16,11 +16,14 @@ public class Main {
 		ContaComum contaComum = new ContaComum();
 		contaComum.setBanco(banco);
 		contaComum.setCliente(cliente);
+		contaComum.setAgencia("0001");
 		contaComum.setNumero("123456-7");
 		contaComum.setSaldo(0);
 		
-		System.out.println("Banco :" + contaComum.getBanco().getNome());
-		System.out.println("Cliente :" + contaComum.getCliente().getNome());
+		System.out.println("Banco : " + contaComum.getBanco().getNome());
+		System.out.println("Cliente : " + contaComum.getCliente().getNome());
+		System.out.println("Agencia : " + contaComum.getAgencia());
+		System.out.println("Conta : " + contaComum.getNumero());
 		System.out.println("------------------------------------------");
 		
 		contaComum.obterSaldo();
@@ -40,11 +43,14 @@ public class Main {
 		contaEspecial.setBanco(banco);
 		contaEspecial.setAgencia("0001");
 		contaEspecial.setCliente(cliente1);
+		contaEspecial.setNumero("456789-0");
 		contaEspecial.setLimite(500);
 
-		System.out.println("Banco :" + contaEspecial.getBanco().getNome());
-		System.out.println("Cliente :" + contaEspecial.getCliente().getNome());
-		System.out.println("Limite :" + contaEspecial.getLimite());
+		System.out.println("Banco : " + contaEspecial.getBanco().getNome());
+		System.out.println("Cliente : " + contaEspecial.getCliente().getNome());
+		System.out.println("Agencia : " + contaEspecial.getAgencia());
+		System.out.println("Conta : " + contaEspecial.getNumero());
+		System.out.println("Limite : " + contaEspecial.getLimite());
 		System.out.println("------------------------------------------");
 		
 		contaEspecial.obterSaldo();

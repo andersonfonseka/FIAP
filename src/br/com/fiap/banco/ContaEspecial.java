@@ -2,17 +2,8 @@ package br.com.fiap.banco;
 
 public class ContaEspecial extends ContaComum {
 	
-	private String agencia;
-	
 	private double limite;
 
-	public String getAgencia() {
-		return agencia;
-	}
-
-	public void setAgencia(String agencia) {
-		this.agencia = agencia;
-	}
 
 	public double getLimite() {
 		return limite;

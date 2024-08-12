@@ -5,6 +5,8 @@ public class ContaComum {
 	private Banco banco;
 
 	private Cliente cliente;
+	
+	private String agencia;
 
 	private String numero;
 
@@ -26,6 +28,14 @@ public class ContaComum {
 		this.cliente = cliente;
 	}
 
+	public String getAgencia() {
+		return agencia;
+	}
+
+	public void setAgencia(String agencia) {
+		this.agencia = agencia;
+	}
+	
 	public String getNumero() {
 		return numero;
 	}
