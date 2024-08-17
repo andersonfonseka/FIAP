@@ -1,19 +1,32 @@
 package br.com.fiap.banco;
 
 public class ContaEspecial extends ContaComum {
-	
+
 	private double limite;
 
+	public ContaEspecial(Banco banco, Cliente cliente, Agencia agencia, String numero, double limite) {
+		this(banco, cliente, agencia, numero, 0,  limite);
+		
+	}
+	
+	public ContaEspecial(Banco banco, Cliente cliente, Agencia agencia, String numero, double saldo, double limite) {
+		super(banco, cliente, agencia, numero, saldo);
+		this.limite = limite;
+		
+	}
 
 	public double getLimite() {
 		return limite;
 	}
 
-	public void setLimite(double limite) {
-		this.limite = limite;
-	}
-	
+
 	public void sacar(double valor) {
+		
+		if (valor <= 0) {
+			System.out.println("O valor informado para [saque] deve ser maior que zero.");
+			return;
+		}
+		
 		System.out.println("Saque solicitado no valor de " + valor);
 		
 		if (valor <= (super.getSaldo()+this.limite)) {
@@ -24,8 +37,9 @@ public class ContaEspecial extends ContaComum {
 		}
 	}
 	
-	@Override
+	
 	public void obterSaldo() {
+
 		System.out.println(super.getCliente().getNome() + " o seu saldo atual eh " + (super.getSaldo() + this.limite));
 		
 		// if ternario - veremos nas aulas seguintes
