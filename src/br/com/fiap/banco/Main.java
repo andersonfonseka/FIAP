@@ -1,9 +1,13 @@
 package br.com.fiap.banco;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import br.com.fiap.banco.entidades.Agencia;
+import br.com.fiap.banco.entidades.Banco;
+import br.com.fiap.banco.entidades.Cliente;
+import br.com.fiap.banco.entidades.Conta;
+import br.com.fiap.banco.entidades.ContaComum;
+import br.com.fiap.banco.entidades.ContaEspecial;
 import br.com.fiap.banco.exception.SaldoInsuficienteException;
+import br.com.fiap.banco.exception.ValorInvalidoException;
 
 public class Main {
 
@@ -20,9 +24,8 @@ public class Main {
 		
 		Agencia agencia01 = new Agencia("0001", "Lins");
 		Agencia agencia02 = new Agencia("0002", "Paulista");
-
 		
-		ContaComum contaComum = new ContaComum(banco, cliente, agencia01, "123456-7");
+		Conta contaComum = new ContaComum(banco, cliente, agencia01, "123456-7");
 		
 		System.out.println("Banco : " + contaComum.getBanco().getNome());
 		System.out.println("Cliente : " + contaComum.getCliente().getNome());
@@ -43,7 +46,9 @@ public class Main {
 		try {
 			contaComum.sacar(20000);
 		} catch (SaldoInsuficienteException e) {
-		//	System.out.println(e.getMessage()); 
+			e.printStackTrace();
+		} catch (ValorInvalidoException e) {
+			e.printStackTrace();
 		}
 		
 		
@@ -51,8 +56,14 @@ public class Main {
 		
 		System.out.println("----------------------------------------------------------------------------------------------");
 		
-		ContaEspecial contaEspecial = new ContaEspecial(banco, cliente1, agencia02, "456789-0", 500);
-	
+		Conta contaEspecial = new ContaEspecial(banco, cliente1, agencia02, "456789-0", 500);
+
+		if (contaEspecial instanceof ContaComum) {
+			ContaComum cc = (ContaComum) contaEspecial;
+		} else {
+			System.out.println("Nao eh possivel fazer o cast entre ContaEspecial e ContaComum");
+		}
+		
 		System.out.println("Banco : " + contaEspecial.getBanco().getNome());
 		System.out.println("Cliente : " + contaEspecial.getCliente().getNome());
 		System.out.println("Agencia : " + contaEspecial.getAgencia());
@@ -69,17 +80,44 @@ public class Main {
 		
 		System.out.println("------------------------------------------");
 		
-		contaEspecial.sacar(250);
+		try {
+			contaEspecial.sacar(250);
+		} catch (SaldoInsuficienteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ValorInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		contaEspecial.obterSaldo();
 		
 		System.out.println("------------------------------------------");
 		
-		contaEspecial.sacar(350);
+		try {
+			contaEspecial.sacar(350);
+		} catch (SaldoInsuficienteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ValorInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		contaEspecial.obterSaldo();
 		
 		System.out.println("------------------------------------------");
 		
-		contaEspecial.sacar(100);
+		try {
+			contaEspecial.sacar(-100);
+		} catch (SaldoInsuficienteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ValorInvalidoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		contaEspecial.obterSaldo();
 		
 		

@@ -1,4 +1,4 @@
-package br.com.fiap.banco;
+package br.com.fiap.banco.entidades;
 
 public class Cliente {
 	

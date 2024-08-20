@@ -10,8 +10,11 @@ public class Cliente3 {
 //		IVeiculo veiculo2 = new Carro("Fusca", "VW", 1976, "Gasolina");
 //		veiculo2.mover();
 
-		FormaPagamento pagamento = new TransferenciaBancaria();
-		pagamento.pagar();
+//		FormaPagamento pagamento = new TransferenciaBancaria();
+//		pagamento.pagar();
+
+		AnimalVoador animalVoador = new Morcego();
+		Mamifero mamifero = new Morcego();
 		
 		
 	}

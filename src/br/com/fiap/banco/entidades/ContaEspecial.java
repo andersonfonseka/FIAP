@@ -1,6 +1,9 @@
-package br.com.fiap.banco;
+package br.com.fiap.banco.entidades;
 
-public class ContaEspecial extends ContaComum {
+import br.com.fiap.banco.exception.SaldoInsuficienteException;
+import br.com.fiap.banco.exception.ValorInvalidoException;
+
+public class ContaEspecial extends Conta {
 
 	private double limite;
 
@@ -15,16 +18,10 @@ public class ContaEspecial extends ContaComum {
 		
 	}
 
-	public double getLimite() {
-		return limite;
-	}
-
-
-	public void sacar(double valor) {
+	public void sacar(double valor) throws SaldoInsuficienteException, ValorInvalidoException {
 		
 		if (valor <= 0) {
-			System.out.println("O valor informado para [saque] deve ser maior que zero.");
-			return;
+			throw new ValorInvalidoException("O valor informado para [saque] deve ser maior que zero.");
 		}
 		
 		System.out.println("Saque solicitado no valor de " + valor);
@@ -33,7 +30,7 @@ public class ContaEspecial extends ContaComum {
 			super.setSaldo(super.getSaldo()-valor);
 			System.out.println("Saque realizado no valor de " + valor);
 		} else {
-			System.out.println("Saldo Insuficiente!!! O valor de " + valor + " excede o seu saldo atual + limite que eh de : " + (super.getSaldo() + this.limite));
+			throw new SaldoInsuficienteException("Saldo Insuficiente!!! O valor de " + valor + " excede o seu saldo atual + limite que eh de : " + (super.getSaldo() + this.limite));
 		}
 	}
 	
@@ -47,5 +44,10 @@ public class ContaEspecial extends ContaComum {
 		
 		System.out.println("Utilizando " +  limiteUtilizado + " do seu limite permitido!!");
 	}
+	
+	public double getLimite() {
+		return limite;
+	}
+
 	
 }

@@ -1,16 +1,9 @@
 package br.com.fiap.aula01;
 
-public class Bicicleta extends Veiculo implements IVeiculo {
+public class Bicicleta extends Veiculo {
 	
-
 	private boolean temBagageiro;
 
-	public Bicicleta() {}
-	
-	public Bicicleta(String modelo, String marca, int anoDeFabricacao) {
-		super(modelo, marca, anoDeFabricacao);
-	}
-	
 	public boolean isTemBagageiro() {
 		return temBagageiro;
 	}

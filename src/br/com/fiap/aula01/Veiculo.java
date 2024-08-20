@@ -8,15 +8,7 @@ public class Veiculo {
 	
 	private int anoDeFabricacao;
 	
-	public Veiculo() {}
 	
-	public Veiculo(String modelo, String marca, int anoDeFabricacao) {
-		super();
-		this.modelo = modelo;
-		this.marca = marca;
-		this.anoDeFabricacao = anoDeFabricacao;
-	}
-
 	public String getModelo() {
 		return modelo;
 	}
@@ -39,6 +31,10 @@ public class Veiculo {
 
 	public void setAnoDeFabricacao(int anoDeFabricacao) {
 		this.anoDeFabricacao = anoDeFabricacao;
+	}
+
+	public void mover() {
+		System.out.println("movendo " + this.marca + " - " + this.modelo + " - " + this.anoDeFabricacao);
 	}
 
 	public void parar() {
