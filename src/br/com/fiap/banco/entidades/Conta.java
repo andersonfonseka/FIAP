@@ -1,9 +1,11 @@
 package br.com.fiap.banco.entidades;
 
+import javax.swing.Icon;
+
 import br.com.fiap.banco.exception.SaldoInsuficienteException;
 import br.com.fiap.banco.exception.ValorInvalidoException;
 
-public abstract class Conta {
+public abstract class Conta implements IConta {
 
 	private Banco banco;
 
@@ -61,7 +63,29 @@ public abstract class Conta {
 	public abstract void sacar(double valor) throws SaldoInsuficienteException, ValorInvalidoException;
 
 	public abstract void obterSaldo();
-	
+
+	public abstract boolean possuiSaldo(double valor);
+
 	public abstract double getLimite();
+
+	public void transferir(IConta contaDestino, double valor) {
+
+		if (this.possuiSaldo(valor)) {
+
+			try {
+				this.sacar(valor);
+			} catch (SaldoInsuficienteException e) {
+				e.printStackTrace();
+			} catch (ValorInvalidoException e) {
+				e.printStackTrace();
+			}
+
+			contaDestino.depositar(valor);
+
+			System.out.println("Transferencia no valor de " + valor + " do(a) Conta da " + getCliente().getNome()
+					+ " para a Conta do(a) " + contaDestino.getCliente().getNome());
+		}
+
+	}
 
 }

@@ -24,4 +24,10 @@ public class ContaPoupanca extends Conta {
 		return 0;
 	}
 
+	@Override
+	public boolean possuiSaldo(double valor) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

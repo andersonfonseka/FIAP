@@ -44,10 +44,27 @@ public class ContaEspecial extends Conta {
 		
 		System.out.println("Utilizando " +  limiteUtilizado + " do seu limite permitido!!");
 	}
+
+	@Override
+	public boolean possuiSaldo(double valor) {
+		return (getSaldo() + getLimite()) >= valor;
+	}
 	
 	public double getLimite() {
 		return limite;
 	}
-
+	
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("Banco : " + getBanco().getNome() + "\n");
+		sb.append("Cliente : " + getCliente().getNome() + "\n");
+		sb.append("Agencia : " + getAgencia() + "\n");
+		sb.append("Conta : " + getNumero() + "\n");
+		sb.append("Limite : " + getLimite() + "\n");
+		
+		return sb.toString();
+	}
 	
 }

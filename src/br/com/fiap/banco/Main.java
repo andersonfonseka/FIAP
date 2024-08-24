@@ -6,6 +6,7 @@ import br.com.fiap.banco.entidades.Cliente;
 import br.com.fiap.banco.entidades.Conta;
 import br.com.fiap.banco.entidades.ContaComum;
 import br.com.fiap.banco.entidades.ContaEspecial;
+import br.com.fiap.banco.entidades.IConta;
 import br.com.fiap.banco.exception.SaldoInsuficienteException;
 import br.com.fiap.banco.exception.ValorInvalidoException;
 
@@ -25,12 +26,9 @@ public class Main {
 		Agencia agencia01 = new Agencia("0001", "Lins");
 		Agencia agencia02 = new Agencia("0002", "Paulista");
 		
-		Conta contaComum = new ContaComum(banco, cliente, agencia01, "123456-7");
+		IConta contaComum = new ContaComum(banco, cliente, agencia01, "123456-7");
 		
-		System.out.println("Banco : " + contaComum.getBanco().getNome());
-		System.out.println("Cliente : " + contaComum.getCliente().getNome());
-		System.out.println("Agencia : " + contaComum.getAgencia());
-		System.out.println("Conta : " + contaComum.getNumero());
+		System.out.println(contaComum);
 		System.out.println("------------------------------------------");
 		
 		contaComum.obterSaldo();
@@ -40,35 +38,12 @@ public class Main {
 		System.out.println("------------------------------------------");
 		contaComum.depositar(50);
 		contaComum.obterSaldo();
-		System.out.println("------------------------------------------");
-		
-		
-		try {
-			contaComum.sacar(20000);
-		} catch (SaldoInsuficienteException e) {
-			e.printStackTrace();
-		} catch (ValorInvalidoException e) {
-			e.printStackTrace();
-		}
-		
-		
-		contaComum.obterSaldo();
 		
 		System.out.println("----------------------------------------------------------------------------------------------");
 		
-		Conta contaEspecial = new ContaEspecial(banco, cliente1, agencia02, "456789-0", 500);
-
-		if (contaEspecial instanceof ContaComum) {
-			ContaComum cc = (ContaComum) contaEspecial;
-		} else {
-			System.out.println("Nao eh possivel fazer o cast entre ContaEspecial e ContaComum");
-		}
+		IConta contaEspecial = new ContaEspecial(banco, cliente1, agencia02, "456789-0", 500);
 		
-		System.out.println("Banco : " + contaEspecial.getBanco().getNome());
-		System.out.println("Cliente : " + contaEspecial.getCliente().getNome());
-		System.out.println("Agencia : " + contaEspecial.getAgencia());
-		System.out.println("Conta : " + contaEspecial.getNumero());
-		System.out.println("Limite : " + contaEspecial.getLimite());
+		System.out.println(contaEspecial);
 		System.out.println("------------------------------------------");
 		
 		contaEspecial.obterSaldo();
@@ -89,37 +64,15 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	
 		contaEspecial.obterSaldo();
-		
 		System.out.println("------------------------------------------");
-		
-		try {
-			contaEspecial.sacar(350);
-		} catch (SaldoInsuficienteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ValorInvalidoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		contaEspecial.obterSaldo();
-		
+	
+		contaComum.transferir(contaEspecial, 10);
+
 		System.out.println("------------------------------------------");
-		
-		try {
-			contaEspecial.sacar(-100);
-		} catch (SaldoInsuficienteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ValorInvalidoException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		contaComum.obterSaldo();
 		contaEspecial.obterSaldo();
-		
 		
 	}
 	
