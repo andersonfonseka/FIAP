@@ -5,6 +5,10 @@ import br.com.fiap.banco.exception.ValorInvalidoException;
 
 public interface IConta {
 	
+	public void setId(Long id);
+	
+	public Long getId();
+	
 	public Cliente getCliente();
 	
 	public void depositar(double valor);

@@ -1,5 +1,7 @@
 package br.com.fiap.banco;
 
+import java.util.Collection;
+
 import br.com.fiap.banco.entidades.Agencia;
 import br.com.fiap.banco.entidades.Banco;
 import br.com.fiap.banco.entidades.Cliente;
@@ -8,6 +10,8 @@ import br.com.fiap.banco.entidades.ContaEspecial;
 import br.com.fiap.banco.entidades.IConta;
 import br.com.fiap.banco.exception.SaldoInsuficienteException;
 import br.com.fiap.banco.exception.ValorInvalidoException;
+import br.com.fiap.banco.repositorio.ContaRepositorioMemoria;
+import br.com.fiap.banco.repositorio.IContaRepositorio;
 
 public class Main {
 
@@ -72,6 +76,44 @@ public class Main {
 		System.out.println("------------------------------------------");
 		contaComum.obterSaldo();
 		contaEspecial.obterSaldo();
+		
+		
+		
+		IContaRepositorio repositorioMemoria = ContaRepositorioMemoria.obterRepositorio();
+		repositorioMemoria.criar(contaComum);
+		repositorioMemoria.criar(contaEspecial);
+		
+		System.out.println("////////////////////////////////////////////////////");
+		
+		Collection<IConta> contas = repositorioMemoria.listarTodos();
+		
+		for (IConta iConta : contas) {
+			System.out.println(iConta);
+		}
+		
+		System.out.println("////////////////////////////////////////////////////");
+		
+		System.out.println(repositorioMemoria.ler(1L));
+		
+		Cliente cliente2 = new Cliente();
+		cliente2.setNome("Gabriel");
+		
+		ContaComum contaComum2 = new ContaComum(banco, cliente2, agencia01, "99999-9");
+		contaComum2.setId(1L);
+		
+		repositorioMemoria.atualizar(contaComum2);
+		
+		System.out.println(repositorioMemoria.ler(1L));
+		
+		System.out.println("////////////////////////////////////////////////////");
+		
+		repositorioMemoria.deletar(contaComum2);
+		
+		contas = repositorioMemoria.listarTodos();
+		
+		for (IConta iConta : contas) {
+			System.out.println(iConta);
+		}
 		
 	}
 	

@@ -5,6 +5,8 @@ import br.com.fiap.banco.exception.ValorInvalidoException;
 
 public abstract class Conta implements IConta {
 
+	private Long id;
+	
 	private Banco banco;
 
 	private Cliente cliente;
@@ -22,6 +24,14 @@ public abstract class Conta implements IConta {
 		this.agencia = agencia;
 		this.numero = numero;
 		this.saldo = saldo;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Banco getBanco() {
