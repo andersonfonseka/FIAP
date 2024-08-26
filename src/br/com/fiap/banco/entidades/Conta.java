@@ -1,7 +1,5 @@
 package br.com.fiap.banco.entidades;
 
-import javax.swing.Icon;
-
 import br.com.fiap.banco.exception.SaldoInsuficienteException;
 import br.com.fiap.banco.exception.ValorInvalidoException;
 

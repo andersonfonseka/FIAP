@@ -3,7 +3,6 @@ package br.com.fiap.banco;
 import br.com.fiap.banco.entidades.Agencia;
 import br.com.fiap.banco.entidades.Banco;
 import br.com.fiap.banco.entidades.Cliente;
-import br.com.fiap.banco.entidades.Conta;
 import br.com.fiap.banco.entidades.ContaComum;
 import br.com.fiap.banco.entidades.ContaEspecial;
 import br.com.fiap.banco.entidades.IConta;

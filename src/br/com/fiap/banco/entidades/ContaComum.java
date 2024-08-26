@@ -10,7 +10,6 @@ public class ContaComum extends Conta {
 		super(banco, cliente, agencia, numero, 0);
 	}
 	
-	@Deprecated
 	public void sacar(double valor) throws SaldoInsuficienteException, ValorInvalidoException {
 		
 		if (valor <= 0) {
